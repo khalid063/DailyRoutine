@@ -13,10 +13,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dailayroutine.databinding.ActivityMainBinding;
+import com.example.dailayroutine.fragment.HomeFragment;
+import com.example.dailayroutine.fragment.ScheduleEight;
+import com.example.dailayroutine.fragment.ScheduleEleven;
+import com.example.dailayroutine.fragment.ScheduleFive;
+import com.example.dailayroutine.fragment.ScheduleFour;
+import com.example.dailayroutine.fragment.ScheduleNine;
+import com.example.dailayroutine.fragment.ScheduleOne;
+import com.example.dailayroutine.fragment.ScheduleSix;
+import com.example.dailayroutine.fragment.ScheduleTen;
+import com.example.dailayroutine.fragment.ScheduleThree;
+import com.example.dailayroutine.fragment.ScheduleTwelve;
+import com.example.dailayroutine.fragment.ScheduleTwo;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,7 +50,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int[] flags = {R.drawable.ic_schedule,
             R.drawable.ic_schedule,
             R.drawable.ic_schedule,
-            R.drawable.ic_schedule};
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule,
+            R.drawable.ic_schedule
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //--------------------------------------- Find view by Id -------------------------------//
         textView_toolbar_title = findViewById(R.id.tv_toolbar_text);
-        textView_toolbar_title.setText("Digital Money Bag");
+        textView_toolbar_title.setText("Daily Routine");
 
         // code for showing fragment in mainActivity.xml
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment ()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
 
         ivMenuIco = findViewById(R.id.ivMenuIco);
         drawerLayout = findViewById (R.id.drawar_layout);
-
-        //drawerLayout.setScrimColor(Color.RED);
-        //navigationView = findViewById(R.id.nav_view_id);
-
-        //imageView_item_one = findViewById(R.id.ivHomeIcon);
 
         ivDrawarButtton = findViewById(R.id.ivMenuIco);
         drawerLayout = findViewById(R.id.drawar_layout);
@@ -81,22 +98,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String value = countryNames[position];
                 Toast.makeText(MainActivity.this, "Clicked"+value, Toast.LENGTH_SHORT).show();
                 Log.d("position","view : "+position);
-                if (position == 0){
-                    // code for showing fragment in mainActivity.xml
-                    Toast.makeText(MainActivity.this, " Clicked", Toast.LENGTH_LONG).show();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
-                    //lvDrawer.setSelector( R.color.sp_bg);
+
+                int v = position;
+                switch (v){
+                    case 0:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleOne()).commit();
+                        break;
+                    case 1:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleTwo()).commit();
+                        break;
+                    case 2:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleThree()).commit();
+                        break;
+                    case 3:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleFour()).commit();
+                        break;
+                    case 4:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleFive()).commit();
+                        break;
+                    case 5:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleSix()).commit();
+                        break;
+                    case 6:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleEleven()).commit();
+                        break;
+                    case 7:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleEight()).commit();
+                        break;
+                    case 8:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleNine()).commit();
+                        break;
+                    case 9:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleTen()).commit();
+                        break;
+                    case 10:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleEleven()).commit();
+                        break;
+                    case 11:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleTwelve()).commit();
+                        break;
+
+                    default:
+                        String text = "No value found";
                 }
-                else if (position == 1){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AboutMe()).commit();
-                    //lvDrawer.setSelector( R.color.sp_bg);
-                }
-                else if (position == 2){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).commit();
-                }
-                else if (position == 3){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SettingsFragment()).commit();
-                }
+
+//                if (position == 0){
+//                    // code for showing fragment in mainActivity.xml
+//                    Toast.makeText(MainActivity.this, " Clicked", Toast.LENGTH_LONG).show();
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleOne()).commit();
+//                    //lvDrawer.setSelector( R.color.sp_bg);
+//                }
+//                else if (position == 1){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleTwo()).commit();
+//                    //lvDrawer.setSelector( R.color.sp_bg);
+//                }
+//                else if (position == 2){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleThree()).commit();
+//                }
+//                else if (position == 3){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleFour()).commit();
+//                }
             }
         });
 

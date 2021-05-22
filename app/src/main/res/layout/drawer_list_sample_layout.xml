@@ -9,7 +9,7 @@
     android:background="#FFFFFF">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="40dp">
         <ImageView
             android:id="@+id/ivIcon"
             android:layout_gravity="center_vertical"
