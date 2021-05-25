@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,15 +31,19 @@ import com.example.dailayroutine.fragment.ScheduleTen;
 import com.example.dailayroutine.fragment.ScheduleThree;
 import com.example.dailayroutine.fragment.ScheduleTwelve;
 import com.example.dailayroutine.fragment.ScheduleTwo;
+import com.google.android.material.internal.NavigationMenu;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
+    //private ListView mListView;
 
     //private Toolbar toolbar;
     private TextView textView_toolbar_title;
     ImageView ivMenuIco;
     DrawerLayout drawerLayout;
+
+    NavigationMenu navigationMenu;
 
     // for Drawar Navigation menu out side onCreat (outSide of OnCreat)
     ImageView ivDrawarButtton;
@@ -99,12 +104,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Clicked"+value, Toast.LENGTH_SHORT).show();
                 Log.d("position","view : "+position);
 
+//                mSelectedItem = position;
+//                mAdapter.notifyDataSetChanged();
+
+                for (int i = 0; i < lvDrawer.getChildCount(); i++) {
+                    if(position == i ){
+                        lvDrawer.getChildAt(i).setBackgroundColor(Color.GREEN);
+                    }else{
+                        lvDrawer.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
+                    }
+                }
+
                 int v = position;
                 switch (v){
                     case 0:
+                        //lvDrawer.getChildAt(v).setBackgroundColor(Color.GREEN);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleOne()).commit();
                         break;
                     case 1:
+                        //lvDrawer.getChildAt(v).setBackgroundColor(Color.GREEN);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleTwo()).commit();
                         break;
                     case 2:
