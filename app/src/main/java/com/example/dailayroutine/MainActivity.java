@@ -26,6 +26,7 @@ import com.example.dailayroutine.fragment.ScheduleFive;
 import com.example.dailayroutine.fragment.ScheduleFour;
 import com.example.dailayroutine.fragment.ScheduleNine;
 import com.example.dailayroutine.fragment.ScheduleOne;
+import com.example.dailayroutine.fragment.ScheduleSeven;
 import com.example.dailayroutine.fragment.ScheduleSix;
 import com.example.dailayroutine.fragment.ScheduleTen;
 import com.example.dailayroutine.fragment.ScheduleThree;
@@ -104,8 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Clicked"+value, Toast.LENGTH_SHORT).show();
                 Log.d("position","view : "+position);
 
-//                mSelectedItem = position;
-//                mAdapter.notifyDataSetChanged();
 
                 for (int i = 0; i < lvDrawer.getChildCount(); i++) {
                     if(position == i ){
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleSix()).commit();
                         break;
                     case 6:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleEleven()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleSeven()).commit();
                         break;
                     case 7:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ScheduleEight()).commit();
